@@ -68,3 +68,30 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
++-----------------+       +-----------------+       +--------------------+
+|     IR Sensor   |       |     ESP32 MCU   |       |     IR Sensor      |
+|     (Entry)     |-----> |                 | <-----|     (Exit)         |
+|      IR_1       | Pin 7 |                 | Pin 3 |      IR_2          |
++-----------------+       |                 |       +--------------------+
+                          |                 |
+                          |                 |
+                          |                 |
+       +------------------+------------------+---------------------+
+       |                  |                  |                     |
+       v                  v                  v                     v
++------------+      +------------+     +-------------+       +-------------+
+|    LCD     |<-----|  Count +    |     |   Buzzer    |<-----|  GSM Module |
+|   Display  |      +------------+     +-------------+       +-------------+
+| Shows count|                          Beeps when           Sends SMS when
+| and status |                          full or low space     space is full
++------------+                                               or emergency
+       |
+       v
++--------------------+
+|  Green/Red LED     |
+| Green: Normal      |
+| Red: Space Low/Full|
++--------------------+
